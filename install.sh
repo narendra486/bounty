@@ -50,30 +50,30 @@ go get -u github.com/tomnomnom/anew
 go get -u github.com/tomnomnom/gf
 go get -u github.com/tomnomnom/httprobe
 go get -u github.com/tomnomnom/qsreplace
-go get github.com/hakluke/hakrawler
-go get github.com/OJ/gobuster
-go get github.com/tomnomnom/hacks/filter-resolved
-go get-u github.com/anshumanbh/tko-subs
-go get-u github.com/ffuf/ffuf
-go get-u github.com/haccer/subjack
-go get-u github.com/j3ssie/go-auxs/just-resolved
-go get-u github.com/j3ssie/metabigor
-go get-u github.com/jaeles-project/gospider
-go get-u github.com/lukasikic/subzy
-go get-u github.com/michenriksen/aquatone
-go get-u github.com/michenriksen/gitrob
-go get-u github.com/OJ/gobuster
-go get-u github.com/projectdiscovery/
-go get-u github.com/sensepost/gowitness
-go get-u github.com/subfinder/goaltdns
-go get-u github.com/theblackturtle/
-go get-u github.com/tomnomnom/assetfinder
-go get-u github.com/tomnomnom/hacks/filter-resolved
-go get-u github.com/tomnomnom/httprobe
-go get-u github.com/tomnomnom/meg
-go get-u github.com/tomnomnom/unfurl
-go get-u github.com/tomnomnom/waybackurls
-go get-u github.com/zricethezav/gitleaks
+go get -u github.com/hakluke/hakrawler
+go get -u github.com/OJ/gobuster
+go get -u github.com/tomnomnom/hacks/filter-resolved
+go get -u github.com/anshumanbh/tko-subs
+go get -u github.com/ffuf/ffuf
+go get -u github.com/haccer/subjack
+go get -u github.com/j3ssie/go-auxs/just-resolved
+go get -u github.com/j3ssie/metabigor
+go get -u github.com/jaeles-project/gospider
+go get -u github.com/lukasikic/subzy
+go get -u github.com/michenriksen/aquatone
+go get -u github.com/michenriksen/gitrob
+go get -u github.com/OJ/gobuster
+go get -u github.com/projectdiscovery/
+go get -u github.com/sensepost/gowitness
+go get -u github.com/subfinder/goaltdns
+go get -u github.com/theblackturtle/
+go get -u github.com/tomnomnom/assetfinder
+go get -u github.com/tomnomnom/hacks/filter-resolved
+go get -u github.com/tomnomnom/httprobe
+go get -u github.com/tomnomnom/meg
+go get -u github.com/tomnomnom/unfurl
+go get -u github.com/tomnomnom/waybackurls
+go get -u github.com/zricethezav/gitleaks
 GO111MODULE=auto go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
 GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 GO111MODULE=on go get -u github.com/projectdiscovery/chaos-client/cmd/chaos
