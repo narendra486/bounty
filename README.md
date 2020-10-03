@@ -1,31 +1,19 @@
 #Bug bounty
 
-#Tools
-go get -u github.com/tomnomnom/anew
-go get -u github.com/tomnomnom/qsreplace
-go get -u github.com/jaeles-project/gospider
-go get github.com/hakluke/hakrawler
-go get -u github.com/tomnomnom/gf
-go get -u github.com/ndelphit/apkurlgrep
-GO111MODULE=on go get -u github.com/projectdiscovery/chaos-client/cmd/chaos
-GO111MODULE=auto go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
-GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-brew install findomain
-brew install amass
 
-ffuf -w traversal.txt -u http://social.buggywebsite.com/FUZZ -mr "root" -mc 200,303,301,302,303,304,308,307,404,405,403 -c
+ffuf -w traversal.txt -u http://<domain>/FUZZ -mr "root" -mc 200,303,301,302,303,304,308,307,404,405,403 -c
 
-gospider -q -s http://social.buggywebsite.com  -o output -c 10 -d 1
+gospider -q -s <domain>  -o output -c 10 -d 1
 
-findomain -t http://sony.com 2>/dev/null | httpx -silent | xargs -I@ sh -c 'ffuf -w path.txt -u @/FUZZ -t 100 -mc 200 -H "Content-Type: application/json"
+findomain -t <domain> 2>/dev/null | httpx -silent | xargs -I@ sh -c 'ffuf -w path.txt -u @/FUZZ -t 100 -mc 200 -H "Content-Type: application/json"
 
-assetfinder http://att.com | sed 's#*.# #g' | httpx -silent -threads 10 | xargs -I@ sh -c 'ffuf -w path.txt -u @/FUZZ -mc 200 -H "Content-Type: application/json" -t 150 -H "X-Forwarded-For:127.0.0.1"'
+assetfinder <domain> | sed 's#*.# #g' | httpx -silent -threads 10 | xargs -I@ sh -c 'ffuf -w path.txt -u @/FUZZ -mc 200 -H "Content-Type: application/json" -t 150 -H "X-Forwarded-For:127.0.0.1"'
 
 wget -nv -nc https://chaos-data.projectdiscovery.io/playstation.zip ; unzip http://playstation.zip ; cat *.txt | httpx -silent -threads 300 | anew fullAlive; gospider -a -d 0 -S fullAlive -c 5 -t 100 -d 5 --blacklist black | egrep -o '(http|https)://[^/"]+' | anew httpSpider
 
 unfurl --unique domains
 
-#cve
+#cve's check
 cat alive.txt | nuclei -t nuclei-templates/workflows | tee -a workflows.
 
 #js file end points extrant
