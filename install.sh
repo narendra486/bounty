@@ -138,4 +138,10 @@ sudo apt install amass
 #https://github.com/tillson/git-hound
 #https://securitytrails.com/blog/github-dorks
 
+echo "${GREEN} #### Downloading wordlists #### ${RESET}"
+git clone https://github.com/assetnote/commonspeak2-wordlists ~/tools/Wordlists/commonspeak2-wordlists
+git clone https://github.com/fuzzdb-project/fuzzdb ~/tools/Wordlists/fuzzdb
+git clone https://github.com/1N3/IntruderPayloads ~/tools/Wordlists/IntruderPayloads
+git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/tools/Wordlists/PayloadsAllTheThings
+git clone https://github.com/danielmiessler/SecLists ~/tools/Wordlists/SecLists
 
