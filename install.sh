@@ -43,40 +43,49 @@ export PATH=$GOPATH/bin:$PATH
 
 
 # Bugbounty go Tools list
-go get -u github.com/ffuf/ffuf
-go get -u github.com/jaeles-project/gospider
-go get -u github.com/ndelphit/apkurlgrep
-go get -u github.com/tomnomnom/anew
-go get -u github.com/tomnomnom/gf
-go get -u github.com/tomnomnom/httprobe
-go get -u github.com/tomnomnom/qsreplace
-go get -u github.com/hakluke/hakrawler
-go get -u github.com/OJ/gobuster
-go get -u github.com/tomnomnom/hacks/filter-resolved
+go get -u github.com/1ndianl33t/urlprobe
 go get -u github.com/anshumanbh/tko-subs
+go get -u github.com/dwisiswant0/cf-check
 go get -u github.com/ffuf/ffuf
 go get -u github.com/haccer/subjack
+go get -u github.com/hakluke/hakrawler
+go get -u github.com/harleo/knockknock
+go get -u github.com/Ice3man543/SubOver
 go get -u github.com/j3ssie/go-auxs/just-resolved
 go get -u github.com/j3ssie/metabigor
 go get -u github.com/jaeles-project/gospider
+go get -u github.com/lc/gau
+go get -u github.com/lc/subjs
 go get -u github.com/lukasikic/subzy
 go get -u github.com/michenriksen/aquatone
 go get -u github.com/michenriksen/gitrob
+go get -u github.com/ndelphit/apkurlgrep
 go get -u github.com/OJ/gobuster
 go get -u github.com/projectdiscovery/
+go get -u github.com/projectdiscovery/chaos-client/cmd/chaos
+go get -u github.com/projectdiscovery/dnsprobe
+go get -u github.com/projectdiscovery/httpx/cmd/httpx
+go get -u github.com/projectdiscovery/naabu/cmd/naabu
+go get -u github.com/projectdiscovery/nuclei/cmd/nuclei
+go get -u github.com/projectdiscovery/shuffledns/cmd/shuffledns
+go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 go get -u github.com/sensepost/gowitness
 go get -u github.com/subfinder/goaltdns
+go get -u github.com/Tanmay-N/CORS-Scanner
 go get -u github.com/theblackturtle/
+go get -u github.com/tomnomnom/anew
 go get -u github.com/tomnomnom/assetfinder
+go get -u github.com/tomnomnom/fff
+go get -u github.com/tomnomnom/gf
+go get -u github.com/tomnomnom/hacks/anti-burl
+go get -u github.com/tomnomnom/hacks/concurl
 go get -u github.com/tomnomnom/hacks/filter-resolved
 go get -u github.com/tomnomnom/httprobe
 go get -u github.com/tomnomnom/meg
+go get -u github.com/tomnomnom/qsreplace
 go get -u github.com/tomnomnom/unfurl
 go get -u github.com/tomnomnom/waybackurls
 go get -u github.com/zricethezav/gitleaks
-GO111MODULE=auto go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
-GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-GO111MODULE=on go get -u github.com/projectdiscovery/chaos-client/cmd/chaos
 
 
 # apt install
