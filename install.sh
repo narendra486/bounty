@@ -1,3 +1,10 @@
+
+echo "${RED} ######################################################### ${RESET}"
+echo "${RED} #                 TOOLS FOR BUG BOUNTY                  # ${RESET}"
+echo "${RED} ######################################################### ${RESET}"
+
+
+
 # Vps Vonfiguration
 
 #!/bin/bash
@@ -8,38 +15,70 @@ echo -e "\nRunning a package upgrade...\n"
 sudo apt-get -qq update && apt-get -qq dist-upgrade -y
 sudo apt full-upgrade -y
 sudo apt-get autoclean
+sudo add-apt-repository -y ppa:apt-fast/stable < /dev/null
+sudo echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
+sudo echo debconf apt-fast/dlflag boolean true | debconf-set-selections
+sudo echo debconf apt-fast/aptmanager string apt-get | debconf-set-selections
+sudo apt install -y apt-fast
 
 echo "[*] Install stuff I use all the time [*]"
 echo -e "\nInstalling default packages...\n"
 sudo add-apt-repository ppa:duh/golang
-sudo apt-get -y install build-essential checkinstall fail2ban gcc firefox git sqlite3 ruby ruby-dev git-core python-dev python-pip unzip jruby libbz2-dev libc6-dev libgdbm-dev libncursesw5-dev libreadline-gplv2-dev libsqlite3-dev libssl-dev nmap nodejs python-dev python-numpy python-scipy python-setuptools tk-dev unattended-upgrades wget curl
-sudo apt-get install -y xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps clang libdbus-1-dev libgtk2.0-dev libnotify-dev libgnome-keyring-dev libgconf2-dev libasound2-dev libcap-dev libcups2-dev libxtst-dev libxss1 libnss3-dev gcc-multilib g++-multilib libldns-dev
-sudo apt-get install -y dnsutils python3-pip  libavahi-compat-libdnssd1 git-core libldns-dev python-software-properties golang gobuster masscan stem  tor netcat privoxy python-pip python3-uritools python3-paramiko nfs-common eyewitness nodejs wafw00f xdg-utils metagoofil clusterd ruby-full rubygems python dos2unix sslyze arachni aha libxml2-utils rpcbind cutycapt host whois dnsrecon  php php-curl hydra wpscan sqlmap nbtscan enum4linux cisco-torch metasploit-framework theharvester dnsenum nikto smtp-user-enum whatweb sslscan jq golang adb xsltproc
-sudo pip install dnspython colorama tldextract urllib3 ipaddress requests html eventlet termcolor
-sudo pip3 install jsbeautifier eventlet termcolor numpy fuzzywuzzy python-Levenshtein shodan wafw00f
-gem install aquatone
+sudo apt-fast install -y apt-transport-https
+sudo apt-fast install -y libcurl4-openssl-dev
+sudo apt-fast install -y libssl-dev
+sudo apt-fast install -y jq
+sudo apt-fast install -y ruby-full
+sudo apt-fast install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+sudo apt-fast install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt-fast install -y python-setuptools
+sudo apt-fast install -y libldns-dev
+sudo apt-fast install -y python3-pip
+sudo apt-fast install -y python-dnspython
+sudo apt-fast install -y git
+sudo apt-fast install -y npm
+sudo apt-fast install -y nmap phantomjs firefox shodan
+sudo apt-fast install -y gem
+sudo apt-fast install -y perl 
+sudo apt-fast install -y parallel
+sudo apt-fast install -y golang gobuster masscan tor netcat eyewitness nodejs wafw00f rubygems python  host whois dnsrecon php hydra 
+sudo apt-fast install -y wpscan sqlmap nbtscan enum4linux theharvester dnsenum nikto  whatweb sslscan jq golang adb 
+sudo apt-fast install -y wfuzz
+
+sudo gem install XSpear
+sudo gem install colorize
+sudo gem install selenium-webdriver
+sudo gem install terminal-table
+sudo gem install progress_bar
+sudo pip3 install py-altdns
+sudo pip3 install jsbeautifier
+sudo pip3 install awscli
+sudo pip3 install xsrfprobe
+sudo pip3 install pwncat
+
+
+echo "${GREEN} [+] Installing Golang ${RESET}"
+if [ ! -f /usr/bin/go ];then
+    cd ~
+    wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
+	export GOROOT=$HOME/.go
+	export PATH=$GOROOT/bin:$PATH
+	export GOPATH=$HOME/go
+    echo 'export GOROOT=$HOME/.go' >> ~/.bash_profile
+	
+	echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
+	echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile
+    source ~/.bash_profile 
+else 
+    echo "${BLUE} Golang is already installed${RESET}"
+fi
+    break
+echo""
+echo "${BLUE} Done Install Golang ${RESET}"
 
 echo "[*] bash changes [*]"
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
-
-# Install latest go binary
-
-install_banner "Install Golang latest version"
-wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
-
-
-GOROOT=$HOME/.go
-PATH=$GOROOT/bin:$PATH
-GOPATH=$HOME/go
-PATH=$GOPATH/bin:$PATH
-
-export GO_BIN="$HOME/.go/bin/go"
-export GOROOT=$HOME/.go
-export PATH=$GOROOT/bin:$PATH
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-
 
 
 # Bugbounty go Tools list
@@ -86,6 +125,7 @@ go get -u github.com/tomnomnom/qsreplace
 go get -u github.com/tomnomnom/unfurl
 go get -u github.com/tomnomnom/waybackurls
 go get -u github.com/zricethezav/gitleaks
+go get -u github.com/hahwul/dalfox
 
 
 # apt install
